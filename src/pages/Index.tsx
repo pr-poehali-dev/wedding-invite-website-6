@@ -14,7 +14,9 @@ const TIMELINE = [
 const DRESS_CODE = [
   { color: "#1a1a1a", label: "Чёрный" },
   { color: "#4a2c1a", label: "Шоколадный" },
+  { color: "#8c8c8c", label: "Серый" },
   { color: "#b0a89a", label: "Серо-бежевый" },
+  { color: "#c4b49a", label: "Тауп" },
   { color: "#f4c2c2", label: "Нежно-розовый" },
   { color: "#b8d4e8", label: "Нежно-голубой" },
 ];
@@ -302,7 +304,7 @@ export default function Index() {
             <div className="bg-white/70 backdrop-blur rounded-2xl p-6 text-left max-w-lg mx-auto">
               <p className="font-cormorant text-xl text-[#2d3a2d] mb-3 font-medium">Пожалуйста, избегайте:</p>
               <ul className="space-y-2">
-                {["Белого и молочно-белого (это цвет невесты)", "Чёрного — оставим для других случаев", "Ярких неоновых оттенков"].map((item) => (
+                {["Белого и молочно-белого (это цвет невесты)", "Ярких неоновых оттенков"].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-golos font-light text-[#4a5a4a]">
                     <span className="text-[#5a7a5a] mt-0.5">✦</span>
                     {item}
