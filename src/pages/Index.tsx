@@ -12,11 +12,11 @@ const TIMELINE = [
 ];
 
 const DRESS_CODE = [
-  { color: "#5a7a5a", label: "Бутылочный зелёный" },
-  { color: "#8fad88", label: "Шалфей" },
-  { color: "#d4c9b0", label: "Шампань" },
-  { color: "#f5f0e8", label: "Айвори" },
-  { color: "#c4b49a", label: "Тауп" },
+  { color: "#1a1a1a", label: "Чёрный" },
+  { color: "#4a2c1a", label: "Шоколадный" },
+  { color: "#b0a89a", label: "Серо-бежевый" },
+  { color: "#f4c2c2", label: "Нежно-розовый" },
+  { color: "#b8d4e8", label: "Нежно-голубой" },
 ];
 
 function useInView(threshold = 0.15) {
@@ -283,11 +283,8 @@ export default function Index() {
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <Section>
             <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">Дресс-код</p>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-6">
-              Природная палитра
-            </h2>
             <p className="font-golos font-light text-[#4a5a4a] text-lg mb-14 max-w-xl mx-auto">
-              Мы будем рады, если ваш образ будет в гармонии с нашей цветовой палитрой — природные оттенки зелени, шалфея и шампани
+              Мы хотим создать особую атмосферу в этот день, и будем очень благодарны, если вы поддержите наш стиль!
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-12">
