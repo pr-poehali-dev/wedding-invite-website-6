@@ -4,11 +4,11 @@ import Icon from "@/components/ui/icon";
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/files/d292a1d0-4564-485c-b422-7ae50301c2e8.jpg";
 
 const TIMELINE = [
-  { time: "15:00", icon: "Church", label: "Выездная регистрация" },
-  { time: "16:00", icon: "Camera", label: "Фотосессия" },
-  { time: "17:00", icon: "UtensilsCrossed", label: "Торжественный ужин" },
-  { time: "19:00", icon: "Music", label: "Первый танец" },
-  { time: "23:00", icon: "Cake", label: "Торжественный торт" },
+  { time: "16:20", icon: "Users", label: "Сбор гостей" },
+  { time: "17:00", icon: "UtensilsCrossed", label: "Праздничный банкет" },
+  { time: "18:00", icon: "Music", label: "Первый танец" },
+  { time: "21:00", icon: "Cake", label: "Торжественный торт" },
+  { time: "22:30", icon: "Star", label: "Окончание мероприятия" },
 ];
 
 const DRESS_CODE = [
