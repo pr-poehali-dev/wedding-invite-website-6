@@ -20,7 +20,7 @@ export default {
 		},
 		fontFamily: {
 			cormorant: ["Cormorant", "serif"],
-			golos: ["Golos Text", "sans-serif"],
+			golos: ["Lora", "serif"],
 		},
 		extend: {
 			colors: {

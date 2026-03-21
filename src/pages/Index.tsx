@@ -63,11 +63,42 @@ function Leaf({ className }: { className: string }) {
   );
 }
 
+function Branch({ className }: { className: string }) {
+  return (
+    <div className={`absolute pointer-events-none select-none ${className}`}>
+      <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <line x1="60" y1="190" x2="60" y2="10" stroke="currentColor" strokeWidth="1.2" opacity="0.22"/>
+        <path d="M60 150 C60 150 30 130 25 105 C22 88 40 80 60 95Z" fill="currentColor" opacity="0.16"/>
+        <path d="M60 150 C60 150 90 130 95 105 C98 88 80 80 60 95Z" fill="currentColor" opacity="0.14"/>
+        <path d="M60 115 C60 115 28 92 22 65 C18 45 40 38 60 55Z" fill="currentColor" opacity="0.16"/>
+        <path d="M60 115 C60 115 92 92 98 65 C102 45 80 38 60 55Z" fill="currentColor" opacity="0.14"/>
+        <path d="M60 78 C60 78 35 58 32 35 C30 18 48 12 60 28Z" fill="currentColor" opacity="0.15"/>
+        <path d="M60 78 C60 78 85 58 88 35 C90 18 72 12 60 28Z" fill="currentColor" opacity="0.13"/>
+      </svg>
+    </div>
+  );
+}
+
+function Hexagon({ className, size = 60 }: { className: string; size?: number }) {
+  const r = size / 2;
+  const pts = Array.from({ length: 6 }, (_, i) => {
+    const a = (Math.PI / 180) * (60 * i - 30);
+    return `${r + r * Math.cos(a)},${r + r * Math.sin(a)}`;
+  }).join(" ");
+  return (
+    <div className={`absolute pointer-events-none select-none ${className}`} style={{ width: size, height: size }}>
+      <svg viewBox={`0 0 ${size} ${size}`} xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <polygon points={pts} fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.18"/>
+      </svg>
+    </div>
+  );
+}
+
 const GUESTS_URL = "https://functions.poehali.dev/c33b8e96-7423-491c-9d54-16d9e0d9532d";
 
 export default function Index() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
-  const [form, setForm] = useState({ name: "", surname: "", attendance: "" });
+  const [form, setForm] = useState({ name: "", attendance: "" });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -92,14 +123,14 @@ export default function Index() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.surname || !form.attendance) return;
+    if (!form.name || !form.attendance) return;
     setSubmitting(true);
     setError("");
     try {
       const res = await fetch(GUESTS_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ name: form.name, surname: "", attendance: form.attendance }),
       });
       if (!res.ok) throw new Error("Ошибка сервера");
       setSubmitted(true);
@@ -125,6 +156,11 @@ export default function Index() {
         <Leaf className="text-[#4a6741] w-16 h-24 top-16 right-8 md:right-24 rotate-[30deg]" />
         <Leaf className="text-[#4a6741] w-20 h-32 bottom-32 left-8 md:left-32 rotate-[15deg]" />
         <Leaf className="text-[#4a6741] w-28 h-40 bottom-24 right-4 md:right-20 rotate-[-25deg]" />
+        <Branch className="text-[#4a6741] w-20 h-36 top-1/4 left-0 md:left-8 rotate-[10deg] opacity-70" />
+        <Branch className="text-[#4a6741] w-16 h-28 top-1/3 right-0 md:right-8 rotate-[-15deg] opacity-60" />
+        <Hexagon className="text-[#4a6741] top-12 left-1/4 hidden md:block" size={80} />
+        <Hexagon className="text-[#4a6741] bottom-40 right-1/4 hidden md:block" size={60} />
+        <Hexagon className="text-[#4a6741] top-1/2 left-12 hidden md:block" size={40} />
 
         <div className="relative z-10 text-center px-6" style={{ animation: "fadeInUp 1s ease both" }}>
           <p className="font-cormorant text-[#5a7a5a] text-lg md:text-xl tracking-[0.3em] uppercase mb-4">
@@ -167,8 +203,11 @@ export default function Index() {
       </section>
 
       {/* О СОБЫТИИ */}
-      <section id="about" className="py-24 px-6 max-w-3xl mx-auto text-center relative">
+      <section id="about" className="py-24 px-6 max-w-3xl mx-auto text-center relative overflow-hidden">
         <Leaf className="text-[#4a6741] w-16 h-24 -top-4 right-0 rotate-[40deg] hidden md:block" />
+        <Branch className="text-[#4a6741] w-14 h-24 top-8 left-0 rotate-[5deg] opacity-50 hidden md:block" />
+        <Hexagon className="text-[#4a6741] -bottom-4 right-8 hidden md:block" size={70} />
+        <Hexagon className="text-[#4a6741] top-16 left-8 hidden md:block" size={44} />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">О событии</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-8 leading-tight">
@@ -192,6 +231,9 @@ export default function Index() {
       <section id="place" className="py-24 px-6 bg-[#eeeae0] relative overflow-hidden">
         <Leaf className="text-[#4a6741] w-32 h-48 top-0 left-0 rotate-[-10deg] opacity-60" />
         <Leaf className="text-[#4a6741] w-24 h-36 bottom-0 right-8 rotate-[20deg] opacity-60" />
+        <Branch className="text-[#4a6741] w-16 h-32 bottom-8 left-1/3 rotate-[-8deg] opacity-40 hidden md:block" />
+        <Hexagon className="text-[#4a6741] top-8 right-1/4 hidden md:block" size={90} />
+        <Hexagon className="text-[#4a6741] bottom-12 left-1/4 hidden md:block" size={50} />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <Section>
@@ -249,7 +291,10 @@ export default function Index() {
       </section>
 
       {/* ПРОГРАММА */}
-      <section id="program" className="py-24 px-6 max-w-2xl mx-auto">
+      <section id="program" className="py-24 px-6 max-w-2xl mx-auto relative overflow-hidden">
+        <Branch className="text-[#4a6741] w-12 h-20 top-12 right-0 rotate-[-20deg] opacity-45 hidden md:block" />
+        <Leaf className="text-[#4a6741] w-12 h-18 bottom-8 left-0 rotate-[30deg] opacity-50 hidden md:block" />
+        <Hexagon className="text-[#4a6741] top-24 right-8 hidden md:block" size={55} />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4 text-center">Программа</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-16 text-center">
@@ -282,6 +327,9 @@ export default function Index() {
       {/* ДРЕСС-КОД */}
       <section id="dresscode" className="py-24 px-6 bg-[#eeeae0] relative overflow-hidden">
         <Leaf className="text-[#4a6741] w-20 h-32 top-8 right-0 rotate-[-30deg] opacity-50" />
+        <Branch className="text-[#4a6741] w-16 h-28 bottom-4 left-0 rotate-[12deg] opacity-45 hidden md:block" />
+        <Hexagon className="text-[#4a6741] top-10 left-8 hidden md:block" size={65} />
+        <Hexagon className="text-[#4a6741] bottom-10 right-12 hidden md:block" size={80} />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <Section>
             <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">Дресс-код</p>
@@ -317,8 +365,10 @@ export default function Index() {
       </section>
 
       {/* ФОРМА РЕГИСТРАЦИИ */}
-      <section id="rsvp" className="py-24 px-6 max-w-xl mx-auto text-center relative">
+      <section id="rsvp" className="py-24 px-6 max-w-xl mx-auto text-center relative overflow-hidden">
         <Leaf className="text-[#4a6741] w-20 h-32 top-0 left-0 rotate-[20deg] opacity-40 hidden md:block" />
+        <Branch className="text-[#4a6741] w-12 h-22 top-8 right-0 rotate-[-10deg] opacity-40 hidden md:block" />
+        <Hexagon className="text-[#4a6741] bottom-16 right-4 hidden md:block" size={60} />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">Подтверждение</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-4">
@@ -336,37 +386,27 @@ export default function Index() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-left">
-                  <label className="font-golos text-xs text-[#5a7a5a]/70 uppercase tracking-widest block mb-2">Имя</label>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Александр"
-                    className="w-full bg-white border border-[#5a7a5a]/20 rounded-xl px-5 py-4 font-golos text-[#2d3a2d] placeholder:text-[#4a5a4a]/30 focus:outline-none focus:border-[#5a7a5a]/60 transition-colors"
-                    required
-                  />
-                </div>
-                <div className="text-left">
-                  <label className="font-golos text-xs text-[#5a7a5a]/70 uppercase tracking-widest block mb-2">Фамилия</label>
-                  <input
-                    type="text"
-                    value={form.surname}
-                    onChange={(e) => setForm({ ...form, surname: e.target.value })}
-                    placeholder="Иванов"
-                    className="w-full bg-white border border-[#5a7a5a]/20 rounded-xl px-5 py-4 font-golos text-[#2d3a2d] placeholder:text-[#4a5a4a]/30 focus:outline-none focus:border-[#5a7a5a]/60 transition-colors"
-                    required
-                  />
-                </div>
+              <div className="text-left">
+                <label className="font-golos text-xs text-[#5a7a5a]/70 uppercase tracking-widest block mb-1">Имя и Фамилия</label>
+                <p className="font-cormorant italic text-[#5a7a5a] text-sm mb-2">если вы будете семьёй или парой — внесите все имена и фамилии</p>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Александр Иванов"
+                  className="w-full bg-white border border-[#5a7a5a]/20 rounded-xl px-5 py-4 font-golos text-[#2d3a2d] placeholder:text-[#4a5a4a]/30 focus:outline-none focus:border-[#5a7a5a]/60 transition-colors"
+                  required
+                />
               </div>
 
               <div className="text-left">
                 <label className="font-golos text-xs text-[#5a7a5a]/70 uppercase tracking-widest block mb-3">Смогу присутствовать?</label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="flex flex-col gap-3">
                   {[
-                    { val: "yes", label: "Да, буду!" },
-                    { val: "no", label: "К сожалению, нет" },
+                    { val: "come_solo", label: "Я приду" },
+                    { val: "come_together", label: "Мы приедем" },
+                    { val: "plus_one", label: "Буду +1" },
+                    { val: "no", label: "Прийти не получится" },
                   ].map(({ val, label }) => (
                     <label
                       key={val}
