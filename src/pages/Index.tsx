@@ -217,14 +217,14 @@ export default function Index() {
             <Section>
               <div className="rounded-2xl overflow-hidden shadow-lg h-80 md:h-[340px]">
                 <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=37.59%2C55.74%2C37.65%2C55.77&layer=mapnik&marker=55.755%2C37.620"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=37.56%2C54.14%2C37.62%2C54.17&layer=mapnik&marker=54.1558%2C37.5893"
                   className="w-full h-full border-0"
                   title="Карта"
                   loading="lazy"
                 />
               </div>
               <a
-                href="https://maps.google.com/?q=55.755,37.620"
+                href="https://maps.google.com/?q=54.1558,37.5893"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 mt-4 font-golos text-sm text-[#5a7a5a] hover:text-[#2d3a2d] transition-colors group"
