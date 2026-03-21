@@ -172,10 +172,17 @@ export default function Index() {
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-8 leading-tight">
             Мы создаём семью и хотим разделить<br className="hidden md:block" /> этот день с вами
           </h2>
-          <p className="font-golos font-light text-[#4a5a4a] leading-relaxed text-lg">
+          <p className="font-golos font-light text-[#4a5a4a] leading-relaxed text-lg mb-10">
             Мы рады сообщить Вам, что 08.08.2026 состоится самое главное торжество в нашей жизни — день нашей свадьбы!
             Приглашаем Вас разделить с нами радость этого незабываемого дня.
           </p>
+          <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-sm">
+            <img
+              src="https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/3e9aa45d-7077-4623-9828-ab8985bb5ae6.jpg"
+              alt="Андрей и Мария"
+              className="w-full object-cover"
+            />
+          </div>
         </Section>
       </section>
 
