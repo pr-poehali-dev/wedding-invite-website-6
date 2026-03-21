@@ -178,7 +178,7 @@ export default function Index() {
           </p>
           <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-sm">
             <img
-              src="https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/3e9aa45d-7077-4623-9828-ab8985bb5ae6.jpg"
+              src="https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/5da8a58b-9d13-467f-b558-aae5f6fb1c4e.jpg"
               alt="Андрей и Мария"
               className="w-full object-cover"
             />
