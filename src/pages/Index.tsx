@@ -61,10 +61,14 @@ function Leaf({ className }: { className: string }) {
   );
 }
 
+const GUESTS_URL = "https://functions.poehali.dev/c33b8e96-7423-491c-9d54-16d9e0d9532d";
+
 export default function Index() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [form, setForm] = useState({ name: "", surname: "", attendance: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const target = new Date("2026-08-08T15:00:00");
@@ -84,9 +88,24 @@ export default function Index() {
     return () => clearInterval(id);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.name && form.surname && form.attendance) setSubmitted(true);
+    if (!form.name || !form.surname || !form.attendance) return;
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch(GUESTS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Ошибка сервера");
+      setSubmitted(true);
+    } catch {
+      setError("Не удалось отправить. Попробуйте ещё раз.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -364,11 +383,15 @@ export default function Index() {
                 </div>
               </div>
 
+              {error && (
+                <p className="font-golos text-sm text-red-500 text-center">{error}</p>
+              )}
               <button
                 type="submit"
-                className="w-full py-5 rounded-xl font-golos font-medium text-white bg-[#5a7a5a] hover:bg-[#4a6741] active:scale-[0.98] transition-all duration-200 text-lg mt-2"
+                disabled={submitting}
+                className="w-full py-5 rounded-xl font-golos font-medium text-white bg-[#5a7a5a] hover:bg-[#4a6741] active:scale-[0.98] transition-all duration-200 text-lg mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Подтвердить
+                {submitting ? "Отправляю..." : "Подтвердить"}
               </button>
             </form>
           )}
