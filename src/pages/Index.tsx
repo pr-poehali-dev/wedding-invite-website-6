@@ -110,7 +110,7 @@ export default function Index() {
             Приглашение на свадьбу
           </p>
           <h1 className="font-cormorant font-light text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-2">
-            Алексей
+            Андрей
           </h1>
           <p className="font-cormorant italic text-[#5a7a5a] text-3xl md:text-5xl mb-2">&amp;</p>
           <h1 className="font-cormorant font-light text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-10">
