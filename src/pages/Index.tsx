@@ -169,7 +169,7 @@ export default function Index() {
           <Section>
             <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4 text-center">Место и время</p>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-12 text-center">
-              Банкетный зал «Изумруд»
+              Банкетный зал «Шартрез»
             </h2>
           </Section>
 
@@ -178,8 +178,8 @@ export default function Index() {
               <div className="space-y-4">
                 {[
                   { icon: "Calendar", label: "Дата", val: "8 августа 2026 года, суббота" },
-                  { icon: "Clock", label: "Начало", val: "15:00 — Выездная регистрация" },
-                  { icon: "MapPin", label: "Адрес", val: "г. Москва, ул. Садовая, д. 12" },
+                  { icon: "Clock", label: "Сбор гостей", val: "16:00" },
+                  { icon: "MapPin", label: "Адрес", val: "г. Тула, Щекинское шоссе, 1А" },
                   { icon: "Car", label: "Парковка", val: "Бесплатная парковка на территории" },
                 ].map(({ icon, label, val }) => (
                   <div key={label} className="flex items-start gap-4 bg-white/60 backdrop-blur rounded-2xl p-5">
