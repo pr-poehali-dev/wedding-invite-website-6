@@ -163,24 +163,24 @@ export default function Index() {
         <Hexagon className="text-[#4a6741] top-1/2 left-12 hidden md:block" size={40} />
 
         <div className="relative z-10 text-center px-6" style={{ animation: "fadeInUp 1s ease both" }}>
-          <p className="font-cormorant text-[#5a7a5a] text-lg md:text-xl tracking-[0.3em] uppercase mb-4">
+          <p className="font-cormorant text-[#5a7a5a] text-base md:text-xl tracking-[0.2em] md:tracking-[0.3em] uppercase mb-4">
             Приглашение на свадьбу
           </p>
-          <h1 className="font-cormorant font-light text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-2">
+          <h1 className="font-cormorant font-light text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-2">
             Андрей
           </h1>
-          <p className="font-cormorant italic text-[#5a7a5a] text-3xl md:text-5xl mb-2">&amp;</p>
-          <h1 className="font-cormorant font-light text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-10">
+          <p className="font-cormorant italic text-[#5a7a5a] text-2xl sm:text-3xl md:text-5xl mb-2">&amp;</p>
+          <h1 className="font-cormorant font-light text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-[#2d3a2d] leading-none mb-8 md:mb-10">
             Мария
           </h1>
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className="h-px w-16 bg-[#5a7a5a]/40" />
-            <p className="font-cormorant text-xl md:text-2xl text-[#5a7a5a] tracking-widest">08 · 08 · 2026</p>
-            <div className="h-px w-16 bg-[#5a7a5a]/40" />
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-10 md:mb-12">
+            <div className="h-px w-10 md:w-16 bg-[#5a7a5a]/40" />
+            <p className="font-cormorant text-lg md:text-2xl text-[#5a7a5a] tracking-widest">08 · 08 · 2026</p>
+            <div className="h-px w-10 md:w-16 bg-[#5a7a5a]/40" />
           </div>
 
           {/* Countdown */}
-          <div className="flex gap-6 md:gap-10 justify-center">
+          <div className="flex gap-4 md:gap-10 justify-center">
             {[
               { v: countdown.d, l: "дней" },
               { v: countdown.h, l: "часов" },
@@ -188,10 +188,10 @@ export default function Index() {
               { v: countdown.s, l: "секунд" },
             ].map(({ v, l }) => (
               <div key={l} className="text-center">
-                <span className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] block w-16 tabular-nums">
+                <span className="font-cormorant text-3xl sm:text-4xl md:text-5xl font-light text-[#2d3a2d] block w-12 sm:w-16 tabular-nums">
                   {String(v).padStart(2, "0")}
                 </span>
-                <span className="font-golos text-xs text-[#5a7a5a]/70 uppercase tracking-widest">{l}</span>
+                <span className="font-golos text-[10px] sm:text-xs text-[#5a7a5a]/70 uppercase tracking-widest">{l}</span>
               </div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function Index() {
             Мы рады сообщить Вам, что 08.08.2026 состоится самое главное торжество в нашей жизни — день нашей свадьбы!
             Приглашаем Вас разделить с нами радость этого незабываемого дня.
           </p>
-          <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-sm">
+          <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-xs sm:max-w-sm">
             <img
               src="https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/5da8a58b-9d13-467f-b558-aae5f6fb1c4e.jpg"
               alt="Андрей и Мария"
@@ -266,7 +266,7 @@ export default function Index() {
             </Section>
 
             <Section>
-              <div className="rounded-2xl overflow-hidden shadow-lg h-80 md:h-[340px]">
+              <div className="rounded-2xl overflow-hidden shadow-lg h-56 sm:h-72 md:h-[340px]">
                 <iframe
                   src="https://www.openstreetmap.org/export/embed.html?bbox=37.563%2C54.133%2C37.601%2C54.151&layer=mapnik&marker=54.141656%2C37.581873"
                   className="w-full h-full border-0"
@@ -303,19 +303,19 @@ export default function Index() {
         </Section>
 
         <div className="relative">
-          <div className="absolute left-[38px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#5a7a5a]/30 to-transparent" />
+          <div className="absolute left-[31px] md:left-[38px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#5a7a5a]/30 to-transparent" />
           <div className="space-y-8">
             {TIMELINE.map(({ time, icon, label }) => (
               <Section key={label}>
-                <div className="flex items-center gap-6 group">
+                <div className="flex items-center gap-4 md:gap-6 group">
                   <div className="relative flex-shrink-0">
-                    <div className="w-[76px] h-[76px] rounded-full bg-[#eeeae0] border-2 border-[#5a7a5a]/20 flex flex-col items-center justify-center group-hover:border-[#5a7a5a]/50 transition-colors">
-                      <Icon name={icon} size={20} className="text-[#5a7a5a] mb-0.5" fallback="Star" />
+                    <div className="w-[62px] h-[62px] md:w-[76px] md:h-[76px] rounded-full bg-[#eeeae0] border-2 border-[#5a7a5a]/20 flex flex-col items-center justify-center group-hover:border-[#5a7a5a]/50 transition-colors">
+                      <Icon name={icon} size={18} className="text-[#5a7a5a] mb-0.5" fallback="Star" />
                       <span className="font-cormorant text-xs font-medium text-[#5a7a5a]">{time}</span>
                     </div>
                   </div>
                   <div>
-                    <p className="font-cormorant text-2xl text-[#2d3a2d]">{label}</p>
+                    <p className="font-cormorant text-xl md:text-2xl text-[#2d3a2d]">{label}</p>
                   </div>
                 </div>
               </Section>
@@ -349,7 +349,7 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="bg-white/70 backdrop-blur rounded-2xl p-6 text-left max-w-lg mx-auto">
+            <div className="bg-white/70 backdrop-blur rounded-2xl p-4 md:p-6 text-left max-w-lg mx-auto">
               <p className="font-cormorant text-xl text-[#2d3a2d] mb-3 font-medium">Пожалуйста, избегайте:</p>
               <ul className="space-y-2">
                 {["Белого и молочно-белого (это цвет невесты)", "Ярких неоновых оттенков"].map((item) => (
@@ -379,9 +379,9 @@ export default function Index() {
           </p>
 
           {submitted ? (
-            <div className="bg-[#eeeae0] rounded-3xl p-12" style={{ animation: "fadeInUp 0.6s ease both" }}>
+            <div className="bg-[#eeeae0] rounded-3xl p-8 md:p-12" style={{ animation: "fadeInUp 0.6s ease both" }}>
               <div className="text-5xl mb-4">🌿</div>
-              <p className="font-cormorant text-3xl text-[#2d3a2d] mb-2">Спасибо!</p>
+              <p className="font-cormorant text-2xl md:text-3xl text-[#2d3a2d] mb-2">Спасибо!</p>
               <p className="font-golos font-light text-[#4a5a4a]">Мы ждём вас 8 августа</p>
             </div>
           ) : (
@@ -448,7 +448,7 @@ export default function Index() {
       <footer className="py-16 text-center bg-[#2d3a2d] relative overflow-hidden">
         <Leaf className="text-white w-16 h-24 top-0 left-8 rotate-[-15deg] opacity-10" />
         <Leaf className="text-white w-20 h-32 bottom-0 right-8 rotate-[20deg] opacity-10" />
-        <p className="font-cormorant text-5xl md:text-6xl text-white/90 relative z-10 mb-3">А &amp; М</p>
+        <p className="font-cormorant text-4xl sm:text-5xl md:text-6xl text-white/90 relative z-10 mb-3">А &amp; М</p>
         <p className="font-golos font-light text-white/50 text-sm tracking-widest relative z-10">08 · 08 · 2026</p>
         <div className="flex items-center justify-center gap-3 mt-6 relative z-10">
           <div className="h-px w-12 bg-white/20" />
