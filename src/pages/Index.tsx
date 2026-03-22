@@ -12,13 +12,11 @@ const TIMELINE = [
 ];
 
 const DRESS_CODE = [
-  { color: "#1a1a1a", label: "Чёрный" },
-  { color: "#4a2c1a", label: "Шоколадный" },
-  { color: "#8c8c8c", label: "Серый" },
-  { color: "#b0a89a", label: "Серо-бежевый" },
-  { color: "#c4b49a", label: "Тауп" },
-  { color: "#f4c2c2", label: "Нежно-розовый" },
-  { color: "#b8d4e8", label: "Нежно-голубой" },
+  { label: "Чёрный", image: "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/a7d2e276-561f-4fdb-b9f0-29c44a323be4.jpeg" },
+  { label: "Шоколадный", image: "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/575a284d-e1aa-4d37-b830-571ac1ed1a5c.jpeg" },
+  { label: "Тауп", image: "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/0a52ba01-c305-4606-bbde-7fab57b1bd29.jpeg" },
+  { label: "Серый", image: "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/c8ba451d-9c99-4fd3-9094-f235c885668f.jpeg" },
+  { label: "Тёмно-синий", image: "https://cdn.poehali.dev/projects/4f4dd924-afb2-473a-8dae-66b98855ef0a/bucket/b17a87b6-eeae-4e86-91de-5fccf1154747.jpeg" },
 ];
 
 function useInView(threshold = 0.15) {
@@ -393,12 +391,13 @@ export default function Index() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-12">
-              {DRESS_CODE.map(({ color, label }) => (
+              {DRESS_CODE.map(({ image, label }) => (
                 <div key={label} className="flex flex-col items-center gap-3">
                   <div
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-full shadow-md border-4 border-white"
-                    style={{ backgroundColor: color }}
-                  />
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-full shadow-md border-4 border-white overflow-hidden"
+                  >
+                    <img src={image} alt={label} className="w-full h-full object-cover" />
+                  </div>
                   <span className="font-golos text-xs text-[#4a5a4a]/80 max-w-[80px] text-center leading-tight">{label}</span>
                 </div>
               ))}
