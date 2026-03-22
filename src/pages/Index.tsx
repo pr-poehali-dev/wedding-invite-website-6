@@ -94,6 +94,47 @@ function Hexagon({ className, size = 60 }: { className: string; size?: number })
   );
 }
 
+function Monstera({ className }: { className: string }) {
+  return (
+    <div className={`absolute pointer-events-none select-none ${className}`}>
+      <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <line x1="80" y1="195" x2="80" y2="110" stroke="currentColor" strokeWidth="1.2" opacity="0.22"/>
+        <line x1="80" y1="110" x2="50" y2="85" stroke="currentColor" strokeWidth="1" opacity="0.2"/>
+        <path d="M80 110 C80 110 10 90 8 45 C6 15 35 5 55 20 C40 22 30 35 35 52 C42 75 75 78 80 110Z" fill="currentColor" opacity="0.14"/>
+        <path d="M55 20 C55 20 48 2 62 0 C72 -1 75 12 80 110 C75 78 68 30 55 20Z" fill="none" stroke="currentColor" strokeWidth="0.6" opacity="0.18"/>
+        <path d="M35 52 C35 52 18 58 20 68 C22 76 36 74 45 66Z" fill="currentColor" opacity="0.1"/>
+        <path d="M8 45 C8 45 0 52 3 63 C6 72 18 68 22 58Z" fill="currentColor" opacity="0.1"/>
+        <path d="M80 110 C80 110 150 90 152 45 C154 15 125 5 105 20 C120 22 130 35 125 52 C118 75 85 78 80 110Z" fill="currentColor" opacity="0.13"/>
+        <path d="M125 52 C125 52 142 58 140 68 C138 76 124 74 115 66Z" fill="currentColor" opacity="0.09"/>
+        <path d="M152 45 C152 45 160 52 157 63 C154 72 142 68 138 58Z" fill="currentColor" opacity="0.09"/>
+        <line x1="80" y1="110" x2="55" y2="20" stroke="currentColor" strokeWidth="0.7" opacity="0.2"/>
+        <line x1="80" y1="110" x2="105" y2="20" stroke="currentColor" strokeWidth="0.7" opacity="0.18"/>
+        <line x1="42" y1="60" x2="22" y2="72" stroke="currentColor" strokeWidth="0.5" opacity="0.15"/>
+        <line x1="118" y1="60" x2="138" y2="72" stroke="currentColor" strokeWidth="0.5" opacity="0.13"/>
+      </svg>
+    </div>
+  );
+}
+
+function Flower({ className }: { className: string }) {
+  return (
+    <div className={`absolute pointer-events-none select-none ${className}`}>
+      <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <line x1="50" y1="125" x2="50" y2="65" stroke="currentColor" strokeWidth="1" opacity="0.25"/>
+        <line x1="50" y1="95" x2="28" y2="78" stroke="currentColor" strokeWidth="0.7" opacity="0.2"/>
+        <path d="M28 78 C28 78 15 72 18 62 C21 54 32 56 35 64Z" fill="currentColor" opacity="0.15"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(-30 50 42)"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(30 50 42)"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(90 50 42)"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(150 50 42)"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(210 50 42)"/>
+        <ellipse cx="50" cy="42" rx="9" ry="14" fill="currentColor" opacity="0.22" transform="rotate(270 50 42)"/>
+        <circle cx="50" cy="42" r="7" fill="currentColor" opacity="0.28"/>
+      </svg>
+    </div>
+  );
+}
+
 const GUESTS_URL = "https://functions.poehali.dev/c33b8e96-7423-491c-9d54-16d9e0d9532d";
 
 export default function Index() {
@@ -208,6 +249,9 @@ export default function Index() {
         <Branch className="text-[#4a6741] w-14 h-24 top-8 left-0 rotate-[5deg] opacity-50 hidden md:block" />
         <Hexagon className="text-[#4a6741] -bottom-4 right-8 hidden md:block" size={70} />
         <Hexagon className="text-[#4a6741] top-16 left-8 hidden md:block" size={44} />
+        <Monstera className="text-[#4a6741] w-28 h-36 bottom-0 left-0 rotate-[10deg] opacity-60 hidden md:block" />
+        <Flower className="text-white/70 w-16 h-20 top-6 right-16 rotate-[-15deg] hidden md:block" />
+        <Flower className="text-white/50 w-10 h-14 bottom-12 right-4 rotate-[20deg] hidden md:block" />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">О событии</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-8 leading-tight">
@@ -234,6 +278,10 @@ export default function Index() {
         <Branch className="text-[#4a6741] w-16 h-32 bottom-8 left-1/3 rotate-[-8deg] opacity-40 hidden md:block" />
         <Hexagon className="text-[#4a6741] top-8 right-1/4 hidden md:block" size={90} />
         <Hexagon className="text-[#4a6741] bottom-12 left-1/4 hidden md:block" size={50} />
+        <Monstera className="text-[#4a6741] w-32 h-40 top-4 right-4 rotate-[-12deg] opacity-50 hidden md:block" />
+        <Monstera className="text-[#4a6741] w-24 h-32 bottom-4 left-4 rotate-[8deg] opacity-45 hidden md:block" />
+        <Flower className="text-white/60 w-14 h-18 top-16 left-1/2 rotate-[10deg] hidden md:block" />
+        <Flower className="text-white/50 w-10 h-14 bottom-20 right-1/3 rotate-[-20deg] hidden md:block" />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <Section>
@@ -295,6 +343,9 @@ export default function Index() {
         <Branch className="text-[#4a6741] w-12 h-20 top-12 right-0 rotate-[-20deg] opacity-45 hidden md:block" />
         <Leaf className="text-[#4a6741] w-12 h-18 bottom-8 left-0 rotate-[30deg] opacity-50 hidden md:block" />
         <Hexagon className="text-[#4a6741] top-24 right-8 hidden md:block" size={55} />
+        <Monstera className="text-[#4a6741] w-24 h-32 bottom-0 right-0 rotate-[-15deg] opacity-50 hidden md:block" />
+        <Flower className="text-[#5a7a5a]/40 w-12 h-16 top-8 left-4 rotate-[5deg] hidden md:block" />
+        <Flower className="text-[#5a7a5a]/30 w-9 h-12 bottom-16 right-4 rotate-[-10deg] hidden md:block" />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4 text-center">Программа</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-16 text-center">
@@ -330,6 +381,10 @@ export default function Index() {
         <Branch className="text-[#4a6741] w-16 h-28 bottom-4 left-0 rotate-[12deg] opacity-45 hidden md:block" />
         <Hexagon className="text-[#4a6741] top-10 left-8 hidden md:block" size={65} />
         <Hexagon className="text-[#4a6741] bottom-10 right-12 hidden md:block" size={80} />
+        <Monstera className="text-[#4a6741] w-28 h-36 top-0 left-8 rotate-[5deg] opacity-55 hidden md:block" />
+        <Monstera className="text-[#4a6741] w-20 h-28 bottom-0 right-6 rotate-[-8deg] opacity-45 hidden md:block" />
+        <Flower className="text-white/65 w-14 h-18 top-12 right-1/4 rotate-[15deg] hidden md:block" />
+        <Flower className="text-white/50 w-11 h-15 bottom-8 left-1/3 rotate-[-5deg] hidden md:block" />
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <Section>
             <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">Дресс-код</p>
@@ -369,6 +424,10 @@ export default function Index() {
         <Leaf className="text-[#4a6741] w-20 h-32 top-0 left-0 rotate-[20deg] opacity-40 hidden md:block" />
         <Branch className="text-[#4a6741] w-12 h-22 top-8 right-0 rotate-[-10deg] opacity-40 hidden md:block" />
         <Hexagon className="text-[#4a6741] bottom-16 right-4 hidden md:block" size={60} />
+        <Monstera className="text-[#4a6741] w-24 h-32 bottom-0 left-0 rotate-[6deg] opacity-50 hidden md:block" />
+        <Monstera className="text-[#4a6741] w-20 h-28 top-4 right-0 rotate-[-18deg] opacity-45 hidden md:block" />
+        <Flower className="text-[#5a7a5a]/35 w-12 h-16 top-10 left-1/4 rotate-[-8deg] hidden md:block" />
+        <Flower className="text-[#5a7a5a]/30 w-9 h-12 bottom-12 right-1/4 rotate-[12deg] hidden md:block" />
         <Section>
           <p className="font-cormorant italic text-[#5a7a5a] text-xl mb-4">Подтверждение</p>
           <h2 className="font-cormorant text-4xl md:text-5xl font-light text-[#2d3a2d] mb-4">
